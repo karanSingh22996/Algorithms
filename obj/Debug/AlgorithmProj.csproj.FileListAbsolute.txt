@@ -1,0 +1,7 @@
+C:\Users\admin\source\repos\Algorithms\Anagram\bin\Debug\Anagram.exe.config
+C:\Users\admin\source\repos\Algorithms\Anagram\bin\Debug\Anagram.exe
+C:\Users\admin\source\repos\Algorithms\Anagram\bin\Debug\Anagram.pdb
+C:\Users\admin\source\repos\Algorithms\Anagram\obj\Debug\AlgorithmProj.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\Algorithms\Anagram\obj\Debug\AlgorithmProj.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\Algorithms\Anagram\obj\Debug\Anagram.exe
+C:\Users\admin\source\repos\Algorithms\Anagram\obj\Debug\Anagram.pdb
