@@ -21,16 +21,24 @@ namespace AlgorithmProj
         public string DecToBin(int n)
         {
             string bin = "";
-            do
+            try
             {
-                int rev = n % 2;
-                bin = rev + bin;
-                n = n / 2;
+              
+                do
+                {
+                    int rev = n % 2;
+                    bin = rev + bin;
+                    n = n / 2;
+                }
+                while (n != 0);
+                
             }
-            while (n != 0);
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return bin;
         }
-
         /// <summary>
         /// Swaps the function.
         /// </summary>

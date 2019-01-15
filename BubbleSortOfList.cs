@@ -25,28 +25,38 @@ namespace AlgorithmProj
         /// <returns>return array of integer</returns>
         public int[] ReadFile()
         {
-            ////Path of the file
-            string path = @"C:\Users\admin\Desktop\number.txt";
+           
+                ////Path of the file
+                string path = @"C:\Users\admin\Desktop\number.txt";
             ////stringReader is a class it open the text files and reads the data
-            using (StreamReader sr = File.OpenText(path))
+            try
             {
-                string s;
-                int j = 0;
-                ////loop will iterate till file reach to null data
-                while ((s = sr.ReadLine()) != null)
+                using (StreamReader sr = File.OpenText(path))
                 {
-                    try {
-                        int i = int.Parse(s);
-                        this.list[j] = i;
-                        j++;
-                    }
-                    catch (Exception e)
+                    string s;
+                    int j = 0;
+                    ////loop will iterate till file reach to null data
+                    while ((s = sr.ReadLine()) != null)
                     {
-                        Console.WriteLine(e.Message);
+                        try
+                        {
+                            int i = int.Parse(s);
+                            this.list[j] = i;
+                            j++;
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                     }
                 }
-            }
 
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return this.list;
         }
     }

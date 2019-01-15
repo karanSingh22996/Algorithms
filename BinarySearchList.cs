@@ -21,19 +21,28 @@ namespace AlgorithmProj
         /// <returns>return string array</returns>
         public string[] ReadFile()
         {
-            string[] st = new string[10];
-            string path = @"C:\Users\admin\Desktop\karan.txt";
-            using (StreamReader sr = File.OpenText(path))
+           
+                string[] st = new string[10];
+            try
             {
-                int i = 0;
-                string s;
-                while ((s = sr.ReadLine()) != null)
+                string path = @"C:\Users\admin\Desktop\karan.txt";
+                using (StreamReader sr = File.OpenText(path))
                 {
-                    st[i] = s;
-                    i++;
+                    int i = 0;
+                    string s;
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        st[i] = s;
+                        i++;
+                    }
                 }
+
+                
             }
-            
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return st;
         }
     }

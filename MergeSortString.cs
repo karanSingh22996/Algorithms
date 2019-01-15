@@ -24,12 +24,19 @@ namespace AlgorithmProj
         /// </summary>
         public void Sort(String[] inputArr)
         {
-            ////initialising instance array and variable
-            this.array = inputArr;
-            this.length = inputArr.Length;
-            this.tempMergeArray = new String[this.length];
-            ////calling method recursively to sort all the data
-            this.DivideArray(0, this.length - 1);
+            try
+            {
+                ////initialising instance array and variable
+                this.array = inputArr;
+                this.length = inputArr.Length;
+                this.tempMergeArray = new String[this.length];
+                ////calling method recursively to sort all the data
+                this.DivideArray(0, this.length - 1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
         /// <summary>
         /// this method will divide the array in parts
@@ -38,18 +45,25 @@ namespace AlgorithmProj
         /// <param name="higherIndex"></param>
         public void DivideArray(int lowerIndex, int higherIndex)
         {
-            if (lowerIndex < higherIndex)
+            try
             {
-                ////finding middle element by adding lower 
-                ///and highest and dividing by 2
-                int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
-                ////calling method recursively 
-                ////first will divide till lower to middle
-                this.DivideArray(lowerIndex, middle);
-                ////this recusive method will divide from middle+1 to higherIndex
-                this.DivideArray(middle + 1, higherIndex);
-                ////this recursive method will 
-                MergeArray(lowerIndex, middle, higherIndex);
+                if (lowerIndex < higherIndex)
+                {
+                    ////finding middle element by adding lower 
+                    ///and highest and dividing by 2
+                    int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+                    ////calling method recursively 
+                    ////first will divide till lower to middle
+                    this.DivideArray(lowerIndex, middle);
+                    ////this recusive method will divide from middle+1 to higherIndex
+                    this.DivideArray(middle + 1, higherIndex);
+                    ////this recursive method will 
+                    MergeArray(lowerIndex, middle, higherIndex);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -61,38 +75,42 @@ namespace AlgorithmProj
         /// <param name="higherIndex"></param>
         public void MergeArray(int lowerIndex, int middle, int higherIndex)
         {
-            for (int m = lowerIndex; m <= higherIndex; m++)
+            try
             {
-                this.tempMergeArray[m] = this.array[m];
-            }
-            int i = lowerIndex;
-            int j = middle + 1;
-            int k = lowerIndex;
-            while (i <= middle && j <= higherIndex)
-            {
-                if (string.Compare(tempMergeArray[i], tempMergeArray[j]) <= 0)
+                for (int m = lowerIndex; m <= higherIndex; m++)
+                {
+                    this.tempMergeArray[m] = this.array[m];
+                }
+                int i = lowerIndex;
+                int j = middle + 1;
+                int k = lowerIndex;
+                while (i <= middle && j <= higherIndex)
+                {
+                    if (string.Compare(tempMergeArray[i], tempMergeArray[j]) <= 0)
+                    {
+                        this.array[k] = tempMergeArray[i];
+                        i++;
+                    }
+                    else
+                    {
+                        this.array[k] = tempMergeArray[j];
+                        j++;
+                    }
+                    k++;
+
+                }
+                while (i <= middle)
                 {
                     this.array[k] = tempMergeArray[i];
+                    k++;
                     i++;
                 }
-                else
-                {
-                    this.array[k] = tempMergeArray[j];
-                    j++;
-                }
-                k++;
-
             }
-            while (i <= middle)
+            catch (Exception e)
             {
-                this.array[k] = tempMergeArray[i];
-                k++;
-                i++;
+                Console.WriteLine(e.Message);
             }
         }
-
-       
-
     }
 
 }

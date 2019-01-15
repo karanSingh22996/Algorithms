@@ -21,20 +21,28 @@ namespace AlgorithmProj
         /// </returns>
         public bool IsPrime(int n)
         {
-#pragma warning disable CS0162 // Unreachable code detected
-            for (int i = 2; i <= n / 2; i++)
-#pragma warning restore CS0162 // Unreachable code detected
+            try
             {
-                if (n % i == 0)
+#pragma warning disable CS0162 // Unreachable code detected
+                for (int i = 2; i <= n / 2; i++)
+#pragma warning restore CS0162 // Unreachable code detected
                 {
-                    return false;
+                    if (n % i == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                else
-                {
-                    return true;
-                }
-            }
 
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return true;
         }
     }

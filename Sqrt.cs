@@ -17,17 +17,24 @@ namespace AlgorithmProj
         /// </summary>
         public void SqrtCal()
         {
-            Console.WriteLine("Enter a non negative number");
-            double c = Utility.GetDouble();
-            double t = c;
-            t = ((c / t) + t) / 2;
-            double epsilon = 1e-15;
-            while (Math.Abs((t - c) / t) > epsilon * t)
+            try
             {
-                t = ((c / t) + t) / 2.0;
-            }
+                Console.WriteLine("Enter a non negative number");
+                double c = Utility.GetDouble();
+                double t = c;
+                t = ((c / t) + t) / 2;
+                double epsilon = 1e-15;
+                while (Math.Abs((t - c) / t) > epsilon * t)
+                {
+                    t = ((c / t) + t) / 2.0;
+                }
 
-            Console.WriteLine("Sqrt " + t);
+                Console.WriteLine("Sqrt " + t);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
