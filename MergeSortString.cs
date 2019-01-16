@@ -6,6 +6,7 @@
 namespace AlgorithmProj
 {
     using System;
+
     /// <summary>
     /// This class will sort the data using merge sort divide and conquer rule
     /// </summary>
@@ -15,6 +16,9 @@ namespace AlgorithmProj
         /// Array declared to store numbers
         /// </summary>
         String[] array;
+        /// <summary>
+        /// Array declared to copy the divide elements of array
+        /// </summary>
         String[] tempMergeArray;
         int length;
 
@@ -22,6 +26,7 @@ namespace AlgorithmProj
         /// This method is declared and defined to 
         /// initialized instance array and variable
         /// </summary>
+        /// /// <param name="inputArr">string array</param>
         public void Sort(String[] inputArr)
         {
             try
@@ -41,16 +46,16 @@ namespace AlgorithmProj
         /// <summary>
         /// this method will divide the array in parts
         /// </summary>
-        /// <param name="lowerIndex"></param>
-        /// <param name="higherIndex"></param>
+        /// <param name="lowerIndex">lower index</param>
+        /// <param name="higherIndex">higher index</param>
         public void DivideArray(int lowerIndex, int higherIndex)
         {
             try
             {
                 if (lowerIndex < higherIndex)
                 {
-                    ////finding middle element by adding lower 
-                    ///and highest and dividing by 2
+                    //// finding middle element by adding lower 
+                    //// and highest and dividing by 2
                     int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
                     ////calling method recursively 
                     ////first will divide till lower to middle
@@ -68,11 +73,11 @@ namespace AlgorithmProj
         }
 
         /// <summary>
-        /// 
+        /// mergeArray is use to merge two array
         /// </summary>
-        /// <param name="lowerIndex"></param>
-        /// <param name="middle"></param>
-        /// <param name="higherIndex"></param>
+        /// <param name="lowerIndex">zero index</param>
+        /// <param name="middle">middle index</param>
+        /// <param name="higherIndex">last index</param>
         public void MergeArray(int lowerIndex, int middle, int higherIndex)
         {
             try
@@ -101,7 +106,7 @@ namespace AlgorithmProj
                 }
                 while (i <= middle)
                 {
-                    this.array[k] = tempMergeArray[i];
+                    this.array[k] = this.tempMergeArray[i];
                     k++;
                     i++;
                 }

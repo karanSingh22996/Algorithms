@@ -20,7 +20,15 @@ namespace AlgorithmProj
         /// <returns>integer return type</returns>
         public static int GetInt()
         {
-            int i = Convert.ToInt32(Console.ReadLine());
+            int i = 0;
+            try
+            {
+                i = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return i;
         }
 
@@ -30,7 +38,15 @@ namespace AlgorithmProj
         /// <returns>return double</returns>
         public static double GetDouble()
         {
-            double i = Convert.ToDouble(Console.ReadLine());
+            double i = 0.0;
+            try
+            {
+                i = Convert.ToDouble(Console.ReadLine());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return i;
         }
 
@@ -40,7 +56,15 @@ namespace AlgorithmProj
         /// <returns>return string</returns>
         public static string GetString()
         {
-            string i = Console.ReadLine();
+            string i = null;
+            try
+            {
+                i = Console.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return i;
         }
 
@@ -53,12 +77,19 @@ namespace AlgorithmProj
         /// </returns>
         public static bool IsPrime(int n)
         {
-            for (int i = 2; i <= n / 2; i++)
+            try
             {
-                if (n % i == 0)
+                for (int i = 2; i <= n / 2; i++)
                 {
-                    return false;
+                    if (n % i == 0)
+                    {
+                        return false;
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             return true;
@@ -72,13 +103,20 @@ namespace AlgorithmProj
         public static int ReverseOfNum(int n)
         {
             int rNum = 0;
-            do
+            try
             {
-                int rev = n % 10;
-                rNum = (rNum * 10) + rev;
-                n = n / 10;
+                do
+                {
+                    int rev = n % 10;
+                    rNum = (rNum * 10) + rev;
+                    n = n / 10;
+                }
+                while (n != 0);
             }
-            while (n != 0);
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return rNum;
         }
 
@@ -90,12 +128,19 @@ namespace AlgorithmProj
         public static int CountNum(int num)
         {
             int count = 0;
-            do
+            try
             {
-                count++;
-                num = num / 10;
+                do
+                {
+                    count++;
+                    num = num / 10;
+                }
+                while (num != 0);
             }
-            while (num != 0);
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return count;
         }
 
@@ -106,38 +151,45 @@ namespace AlgorithmProj
         /// <param name="item">The item.</param>
         public static void BinarySearch(int[] arr, int item)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            Array.Sort(arr);
-            int low = 0;
-            int high = arr.GetLength(0) - 1;
-            int middle = (low + high) / 2;
-            while (low <= high)
+            try
             {
-                if (arr[middle] == item)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                Array.Sort(arr);
+                int low = 0;
+                int high = arr.GetLength(0) - 1;
+                int middle = (low + high) / 2;
+                while (low <= high)
                 {
-                    Console.WriteLine(item + " is found at " + middle + " Position");
-                    break;
-                }
-                else if (item > arr[middle])
-                {
-                    low = middle + 1;
-                }
-                else
-                {
-                    high = middle - 1;
+                    if (arr[middle] == item)
+                    {
+                        Console.WriteLine(item + " is found at " + middle + " Position");
+                        break;
+                    }
+                    else if (item > arr[middle])
+                    {
+                        low = middle + 1;
+                    }
+                    else
+                    {
+                        high = middle - 1;
+                    }
+
+                    middle = (low + high) / 2;
                 }
 
-                middle = (low + high) / 2;
+                if (low > high)
+                {
+                    Console.WriteLine(item + " Not find in the list");
+                }
+
+                stopwatch.Stop();
+                Console.WriteLine("Elapsed Time: " + stopwatch.Elapsed);
             }
-
-            if (low > high)
+            catch (Exception e)
             {
-                Console.WriteLine(item + " Not find in the list");
+                Console.WriteLine(e.Message);
             }
-
-            stopwatch.Stop();
-            Console.WriteLine("Elapsed Time: " + stopwatch.Elapsed);
         }
 
         /// <summary>
@@ -147,38 +199,45 @@ namespace AlgorithmProj
         /// <param name="item">The item.</param>
         public static void BinarySearchStr(string[] str, string item)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            Array.Sort(str);
-            int low = 0;
-            int high = str.GetLength(0) - 1;
-            int middle = (low + high) / 2;
-            while (low <= high)
+            try
             {
-                if (str[middle].CompareTo(item) == 0)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                Array.Sort(str);
+                int low = 0;
+                int high = str.GetLength(0) - 1;
+                int middle = (low + high) / 2;
+                while (low <= high)
                 {
-                    Console.WriteLine(item + " Found at " + middle + " Position ");
-                    break;
-                }
-                else if (str[middle].CompareTo(item) < 0)
-                {
-                    low = middle + 1;
-                }
-                else
-                {
-                    high = middle + 1;
+                    if (str[middle].CompareTo(item) == 0)
+                    {
+                        Console.WriteLine(item + " Found at " + middle + " Position ");
+                        break;
+                    }
+                    else if (str[middle].CompareTo(item) < 0)
+                    {
+                        low = middle + 1;
+                    }
+                    else
+                    {
+                        high = middle + 1;
+                    }
+
+                    middle = (low + high) / 2;
                 }
 
-                middle = (low + high) / 2;
+                if (low > high)
+                {
+                    Console.WriteLine(item + " is not in list of array");
+                }
+
+                stopwatch.Stop();
+                Console.WriteLine("ElapsedTime = " + stopwatch.Elapsed);
             }
-
-            if (low > high)
+            catch (Exception e)
             {
-                Console.WriteLine(item + " is not in list of array");
+                Console.WriteLine(e.Message);
             }
-
-            stopwatch.Stop();
-            Console.WriteLine("ElapsedTime = " + stopwatch.Elapsed);
         }
 
         /// <summary>
@@ -187,31 +246,38 @@ namespace AlgorithmProj
         /// <param name="arr">The array.</param>
         public static void InsertionSortInt(int[] arr)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            int temp, j;
-            for (int i = 1; i < arr.GetLength(0); i++)
+            try
             {
-                temp = arr[i];
-                j = i;
-                while (j > 0 && arr[j - 1] > temp)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                int temp, j;
+                for (int i = 1; i < arr.GetLength(0); i++)
                 {
-                    arr[j] = arr[j - 1];
-                    j = j - 1;
+                    temp = arr[i];
+                    j = i;
+                    while (j > 0 && arr[j - 1] > temp)
+                    {
+                        arr[j] = arr[j - 1];
+                        j = j - 1;
+                    }
+
+                    arr[j] = temp;
                 }
 
-                arr[j] = temp;
-            }
+                Console.WriteLine("Sorted Arrays are:");
+                for (int i = 0; i < arr.GetLength(0); i++)
+                {
+                    Console.Write(arr[i] + " ");
+                }
 
-            Console.WriteLine("Sorted Arrays are:");
-            for (int i = 0; i < arr.GetLength(0); i++)
+                Console.WriteLine();
+                stopwatch.Stop();
+                Console.WriteLine("ElapsedTime = " + stopwatch.Elapsed);
+            }
+            catch (Exception e)
             {
-                Console.Write(arr[i] + " ");
+                Console.WriteLine(e.Message);
             }
-
-            Console.WriteLine();
-            stopwatch.Stop();
-            Console.WriteLine("ElapsedTime = " + stopwatch.Elapsed);
         }
 
         /// <summary>
@@ -220,32 +286,39 @@ namespace AlgorithmProj
         /// <param name="str">The string.</param>
         public static void InsertionSortStr(string[] str)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            string temp;
-            int j;
-            for (int i = 1; i < str.GetLength(0); i++)
+            try
             {
-                temp = str[i];
-                j = i;
-                while (j > 0 && string.Compare(str[j - 1], temp, true) > 0)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                string temp;
+                int j;
+                for (int i = 1; i < str.GetLength(0); i++)
                 {
-                    str[j] = str[j - 1];
-                    j = j - 1;
+                    temp = str[i];
+                    j = i;
+                    while (j > 0 && string.Compare(str[j - 1], temp, true) > 0)
+                    {
+                        str[j] = str[j - 1];
+                        j = j - 1;
+                    }
+
+                    str[j] = temp;
                 }
 
-                str[j] = temp;
-            }
+                Console.WriteLine("Sorted Strings are:");
+                for (int k = 0; k < str.GetLength(0); k++)
+                {
+                    Console.Write(str[k] + " ");
+                }
 
-            Console.WriteLine("Sorted Strings are:");
-            for (int k = 0; k < str.GetLength(0); k++)
+                Console.WriteLine();
+                stopwatch.Stop();
+                Console.WriteLine("ElapsedTime = " + stopwatch.Elapsed);
+            }
+            catch (Exception e)
             {
-                Console.Write(str[k] + " ");
+                Console.WriteLine(e.Message);
             }
-
-            Console.WriteLine();
-            stopwatch.Stop();
-            Console.WriteLine("ElapsedTime = " + stopwatch.Elapsed);
         }
 
         /// <summary>
@@ -286,30 +359,37 @@ namespace AlgorithmProj
         /// <param name="str">The string.</param>
         public static void BubbleSortStr(string[] str)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            for (int i = 0; i < str.GetLength(0) - 1; i++)
+            try
             {
-                for (int j = 1; j < str.GetLength(0) - i; j++)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                for (int i = 0; i < str.GetLength(0) - 1; i++)
                 {
-                    if (string.Compare(str[j - 1], str[j], true) > 0)
+                    for (int j = 1; j < str.GetLength(0) - i; j++)
                     {
-                        string temp = str[j - 1];
-                        str[j - 1] = str[j];
-                        str[j] = temp;
+                        if (string.Compare(str[j - 1], str[j], true) > 0)
+                        {
+                            string temp = str[j - 1];
+                            str[j - 1] = str[j];
+                            str[j] = temp;
+                        }
                     }
                 }
-            }
 
-            Console.WriteLine("Sorted strings are:");
-            for (int i = 0; i < str.GetLength(0); i++)
+                Console.WriteLine("Sorted strings are:");
+                for (int i = 0; i < str.GetLength(0); i++)
+                {
+                    Console.Write(str[i] + " ");
+                }
+
+                Console.WriteLine();
+                stopwatch.Stop();
+                Console.WriteLine("ElapsedTime = " + stopwatch.Elapsed);
+            }
+            catch (Exception e)
             {
-                Console.Write(str[i] + " ");
+                Console.WriteLine(e.Message);
             }
-
-            Console.WriteLine();
-            stopwatch.Stop();
-            Console.WriteLine("ElapsedTime = " + stopwatch.Elapsed);
         }
     }
 }

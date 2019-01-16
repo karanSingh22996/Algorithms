@@ -39,6 +39,7 @@ namespace AlgorithmProj
             }
             return bin;
         }
+
         /// <summary>
         /// Swaps the function.
         /// </summary>
@@ -46,11 +47,17 @@ namespace AlgorithmProj
         /// <returns>return integer values</returns>
         public int SwapFunct(string st)
         {
-            string st1 = st.Substring(0, 4);
-            string st2 = st.Substring(4);
-            string concat = st2 + st1;
-            int bin = int.Parse(concat);
-
+            int bin = 0;
+            try
+            {
+                string st1 = st.Substring(0, 4);
+                string st2 = st.Substring(4);
+                string concat = st2 + st1;
+                bin = int.Parse(concat);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return bin;
         }
 
@@ -62,15 +69,21 @@ namespace AlgorithmProj
         public int BinToDec(int n)
         {
             int dec = 0;
-            int count = 0;
-            do
+            try
             {
-                int r = n % 10;
-                dec = dec + (r * this.Pow(2, count));
-                n = n / 10;
-                count++;
+                int count = 0;
+                do
+                {
+                    int r = n % 10;
+                    dec = dec + (r * this.Pow(2, count));
+                    n = n / 10;
+                    count++;
+                }
+                while (n != 0);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
-            while (n != 0);
             return dec;
         }
 
@@ -83,10 +96,17 @@ namespace AlgorithmProj
         public int Pow(int n, int p)
         {
             int power = 1;
-            while (p > 0)
+            try
             {
-                power = power * n;
-                p--;
+                while (p > 0)
+                {
+                    power = power * n;
+                    p--;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             return power;

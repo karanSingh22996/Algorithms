@@ -21,12 +21,18 @@ namespace AlgorithmProj
         public int[] PrintPrimes(int n)
         {
             int[] primeList = new int[n];
-            for (int i = 0; i < primeList.GetLength(0); i++)
+            try
             {
-                if (Utility.IsPrime(i))
+                for (int i = 0; i < primeList.GetLength(0); i++)
                 {
-                    primeList[i] = i;
+                    if (Utility.IsPrime(i))
+                    {
+                        primeList[i] = i;
+                    }
                 }
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             return primeList;
@@ -42,13 +48,20 @@ namespace AlgorithmProj
         public bool IsPalindrome(int n)
         {
             int sum = 0, t = n;
-            do
+            try
             {
-                int rev = n % 10;
-                sum = (sum * 10) + rev;
-                n = n / 10;
+                do
+                {
+                    int rev = n % 10;
+                    sum = (sum * 10) + rev;
+                    n = n / 10;
+                }
+                while (n != 0);
             }
-            while (n != 0);
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return sum == t;
         }
 
@@ -60,12 +73,18 @@ namespace AlgorithmProj
         public int[] PalindromeList(int[] n)
         {
             int[] palindromeList = new int[n.GetLength(0)];
-            for (int i = 0; i < palindromeList.GetLength(0); i++)
+            try
             {
-                if (this.IsPalindrome(i))
+                for (int i = 0; i < palindromeList.GetLength(0); i++)
                 {
-                    palindromeList[i] = i;
+                    if (this.IsPalindrome(i))
+                    {
+                        palindromeList[i] = i;
+                    }
                 }
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             return palindromeList;

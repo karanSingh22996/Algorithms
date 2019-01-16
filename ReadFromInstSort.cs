@@ -5,9 +5,9 @@
 //-----------------------------------------------------------------------
 namespace AlgorithmProj
 {
-    using System.IO;
     using System;
-
+    using System.IO;
+   
     /// <summary>
     /// This class will read the data from file 
     /// and sort them using insertion sort
@@ -34,7 +34,8 @@ namespace AlgorithmProj
                         i++;
                     }
                 }
-            }catch(Exception e)
+            }
+            catch(Exception e)
             {
                 System.Console.WriteLine(e.Message);
             }
