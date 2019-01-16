@@ -29,6 +29,7 @@ namespace AlgorithmProj
             {
                 Console.WriteLine(e.Message);
             }
+
             return i;
         }
 
@@ -47,6 +48,7 @@ namespace AlgorithmProj
             {
                 Console.WriteLine(e.Message);
             }
+
             return i;
         }
 
@@ -65,6 +67,7 @@ namespace AlgorithmProj
             {
                 Console.WriteLine(e.Message);
             }
+
             return i;
         }
 
@@ -117,6 +120,7 @@ namespace AlgorithmProj
             {
                 Console.WriteLine(e.Message);
             }
+
             return rNum;
         }
 
@@ -141,6 +145,7 @@ namespace AlgorithmProj
             {
                 Console.WriteLine(e.Message);
             }
+
             return count;
         }
 

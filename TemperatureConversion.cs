@@ -8,13 +8,13 @@ namespace AlgorithmProj
     using System;
 
     /// <summary>
-    /// This class will convert the celcius into fahrenheit and vice-versa
+    /// This class will convert the celsius into fahrenheit and vice-versa
     /// </summary>
     public class TemperatureConversion
     {
         /// <summary>
-        /// Fahrent to cel
-        ///cel to fahren.
+        /// Fahren to Cel
+        /// Cel to Fahren.
         /// </summary>
         public void FahrenToCel()
         {

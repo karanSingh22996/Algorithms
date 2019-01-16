@@ -21,8 +21,7 @@ namespace AlgorithmProj
         /// <returns>return string array</returns>
         public string[] ReadFile()
         {
-           
-                string[] st = new string[10];
+            string[] st = new string[10];
             try
             {
                 string path = @"C:\Users\admin\Desktop\karan.txt";
@@ -36,13 +35,12 @@ namespace AlgorithmProj
                         i++;
                     }
                 }
-
-                
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+
             return st;
         }
     }

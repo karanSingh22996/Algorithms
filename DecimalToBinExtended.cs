@@ -23,27 +23,26 @@ namespace AlgorithmProj
             string bin = "";
             try
             {
-              
                 do
                 {
                     int rev = n % 2;
                     bin = rev + bin;
                     n = n / 2;
                 }
-                while (n != 0);
-                
+                while (n != 0);  
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+
             return bin;
         }
 
         /// <summary>
         /// Swaps the function.
         /// </summary>
-        /// <param name="st">string.</param>
+        /// <param name="st">string</param>
         /// <returns>return integer values</returns>
         public int SwapFunct(string st)
         {
@@ -54,10 +53,12 @@ namespace AlgorithmProj
                 string st2 = st.Substring(4);
                 string concat = st2 + st1;
                 bin = int.Parse(concat);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+
             return bin;
         }
 
@@ -80,10 +81,12 @@ namespace AlgorithmProj
                     count++;
                 }
                 while (n != 0);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+
             return dec;
         }
 

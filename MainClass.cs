@@ -241,12 +241,14 @@ namespace AlgorithmProj
                             {
                                 mss[i] = Utility.GetString();
                             }
+
                             Console.WriteLine("Sorted Arrays:");
                             mergeSortString.Sort(mss);
                             foreach (string line in mss)
                             {
                                 Console.WriteLine(line + " ");
                             }
+
                             break;
                         case 21:
                             FindYourNumber fyn = new FindYourNumber();
@@ -255,7 +257,6 @@ namespace AlgorithmProj
                         default:
                             Console.WriteLine("Out of reach:");
                             break;
-
                     }
 
                     Console.WriteLine("Do you want to execute another program press(y/n)");

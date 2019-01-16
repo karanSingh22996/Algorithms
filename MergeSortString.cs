@@ -15,26 +15,31 @@ namespace AlgorithmProj
         /// <summary>
         /// Array declared to store numbers
         /// </summary>
-        String[] array;
+        private string[] array;
+
         /// <summary>
         /// Array declared to copy the divide elements of array
         /// </summary>
-        String[] tempMergeArray;
-        int length;
+        private string[] tempMergeArray;
+
+        /// <summary>
+        /// declaring instance variable length
+        /// </summary>
+        private int length;
 
         /// <summary>
         /// This method is declared and defined to 
         /// initialized instance array and variable
         /// </summary>
         /// /// <param name="inputArr">string array</param>
-        public void Sort(String[] inputArr)
+        public void Sort(string[] inputArr)
         {
             try
             {
                 ////initialising instance array and variable
                 this.array = inputArr;
                 this.length = inputArr.Length;
-                this.tempMergeArray = new String[this.length];
+                this.tempMergeArray = new string[this.length];
                 ////calling method recursively to sort all the data
                 this.DivideArray(0, this.length - 1);
             }
@@ -43,11 +48,12 @@ namespace AlgorithmProj
                 Console.WriteLine(e.Message);
             }
         }
+
         /// <summary>
         /// this method will divide the array in parts
         /// </summary>
-        /// <param name="lowerIndex">lower index</param>
-        /// <param name="higherIndex">higher index</param>
+        /// <param name="lowerIndex"> lower index</param>
+        /// <param name="higherIndex"> higher index</param>
         public void DivideArray(int lowerIndex, int higherIndex)
         {
             try
@@ -56,14 +62,14 @@ namespace AlgorithmProj
                 {
                     //// finding middle element by adding lower 
                     //// and highest and dividing by 2
-                    int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+                    int middle = (lowerIndex + (higherIndex - lowerIndex)) / 2;
                     ////calling method recursively 
                     ////first will divide till lower to middle
                     this.DivideArray(lowerIndex, middle);
                     ////this recusive method will divide from middle+1 to higherIndex
                     this.DivideArray(middle + 1, higherIndex);
                     ////this recursive method will 
-                    MergeArray(lowerIndex, middle, higherIndex);
+                    this.MergeArray(lowerIndex, middle, higherIndex);
                 }
             }
             catch (Exception e)
@@ -86,24 +92,26 @@ namespace AlgorithmProj
                 {
                     this.tempMergeArray[m] = this.array[m];
                 }
+
                 int i = lowerIndex;
                 int j = middle + 1;
                 int k = lowerIndex;
                 while (i <= middle && j <= higherIndex)
                 {
-                    if (string.Compare(tempMergeArray[i], tempMergeArray[j]) <= 0)
+                    if (string.Compare(this.tempMergeArray[i], this.tempMergeArray[j]) <= 0)
                     {
-                        this.array[k] = tempMergeArray[i];
+                        this.array[k] = this.tempMergeArray[i];
                         i++;
                     }
                     else
                     {
-                        this.array[k] = tempMergeArray[j];
+                        this.array[k] = this.tempMergeArray[j];
                         j++;
                     }
-                    k++;
 
+                    k++;
                 }
+
                 while (i <= middle)
                 {
                     this.array[k] = this.tempMergeArray[i];
@@ -117,6 +125,4 @@ namespace AlgorithmProj
             }
         }
     }
-
 }
-

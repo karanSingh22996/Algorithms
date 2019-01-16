@@ -30,7 +30,8 @@ namespace AlgorithmProj
                         primeList[i] = i;
                     }
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -58,10 +59,11 @@ namespace AlgorithmProj
                 }
                 while (n != 0);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+
             return sum == t;
         }
 
@@ -82,7 +84,8 @@ namespace AlgorithmProj
                         palindromeList[i] = i;
                     }
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }

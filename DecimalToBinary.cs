@@ -19,24 +19,23 @@ namespace AlgorithmProj
         /// <returns>string return type</returns>
         public string DecToBin(int n)
         {
-            
-                string bin = "";
+            string bin = "";
             try
             {
                 do
                 {
-                    /// rev declared
+                    //// rev declared
                     int rev = n % 2;
                     bin = rev + bin;
                     n = n / 2;
                 }
                 while (n != 0);
-                
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+
             return bin;
         }
     }

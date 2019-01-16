@@ -35,7 +35,7 @@ namespace AlgorithmProj
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 System.Console.WriteLine(e.Message);
             }

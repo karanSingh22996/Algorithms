@@ -17,17 +17,16 @@ namespace AlgorithmProj
         /// <summary>
         /// The list for storing the data inside the file
         /// </summary>
-        int[] list = new int[11];
+        private int[] list = new int[11];
 
         /// <summary>
         /// Reads the file.
         /// </summary>
         /// <returns>return array of integer</returns>
         public int[] ReadFile()
-        {
-           
-                ////Path of the file
-                string path = @"C:\Users\admin\Desktop\number.txt";
+        {               
+            ////Path of the file
+            string path = @"C:\Users\admin\Desktop\number.txt";
             ////stringReader is a class it open the text files and reads the data
             try
             {
@@ -50,13 +49,12 @@ namespace AlgorithmProj
                         }
                     }
                 }
-
-                
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+
             return this.list;
         }
     }
