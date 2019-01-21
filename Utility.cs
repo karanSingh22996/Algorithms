@@ -202,7 +202,7 @@ namespace AlgorithmProj
         /// </summary>
         /// <param name="str">The string.</param>
         /// <param name="item">The item.</param>
-        public static void BinarySearchStr(string[] str, string item)
+        public static void BinarySearch(string[] str, string item)
         {
             try
             {
@@ -249,7 +249,7 @@ namespace AlgorithmProj
         /// Insertions the sort integer.
         /// </summary>
         /// <param name="arr">The array.</param>
-        public static void InsertionSortInt(int[] arr)
+        public static void InsertionSort(int[] arr)
         {
             try
             {
@@ -289,7 +289,7 @@ namespace AlgorithmProj
         /// Insertions the sort string.
         /// </summary>
         /// <param name="str">The string.</param>
-        public static void InsertionSortStr(string[] str)
+        public static void InsertionSort(string[] str)
         {
             try
             {
@@ -330,7 +330,7 @@ namespace AlgorithmProj
         /// Bubbles the sort integer.
         /// </summary>
         /// <param name="arr">The array.</param>
-        public static void BubbleSortInt(int[] arr)
+        public static void BubbleSort(int[] arr)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -362,7 +362,7 @@ namespace AlgorithmProj
         /// Bubbles the sort string.
         /// </summary>
         /// <param name="str">The string.</param>
-        public static void BubbleSortStr(string[] str)
+        public static void BubbleSort(string[] str)
         {
             try
             {

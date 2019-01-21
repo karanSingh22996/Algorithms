@@ -127,7 +127,7 @@ namespace AlgorithmProj
 
                             Console.WriteLine("Enter an item to search:");
                             string itemStr = Utility.GetString();
-                            Utility.BinarySearchStr(str, itemStr);
+                            Utility.BinarySearch(str, itemStr);
                             break;
                         case 8:
                             Console.WriteLine("Enter the size of Array:");
@@ -139,7 +139,7 @@ namespace AlgorithmProj
                                 arrIns[i] = Utility.GetInt();
                             }
 
-                            Utility.InsertionSortInt(arrIns);
+                            Utility.InsertionSort(arrIns);
                             break;
                         case 9:
                             Console.WriteLine("Enter the size of Array:");
@@ -151,7 +151,7 @@ namespace AlgorithmProj
                                 strIns[i] = Utility.GetString();
                             }
 
-                            Utility.InsertionSortStr(strIns);
+                            Utility.InsertionSort(strIns);
                             break;
                         case 10:
                             Console.WriteLine("Enter the size of Array:");
@@ -163,7 +163,7 @@ namespace AlgorithmProj
                                 arrBubInt[i] = Utility.GetInt();
                             }
 
-                            Utility.BubbleSortInt(arrBubInt);
+                            Utility.BubbleSort(arrBubInt);
                             break;
                         case 11:
                             Console.WriteLine("Enter the size of Array:");
@@ -175,7 +175,7 @@ namespace AlgorithmProj
                                 strBub[i] = Utility.GetString();
                             }
 
-                            Utility.BubbleSortStr(strBub);
+                            Utility.BubbleSort(strBub);
                             break;
                         case 12:
                             TemperatureConversion tc = new TemperatureConversion();
@@ -219,17 +219,17 @@ namespace AlgorithmProj
 
                             Console.WriteLine("Enter the item to search form file");
                             string search = Console.ReadLine();
-                            Utility.BinarySearchStr(bslf, search);
+                            Utility.BinarySearch(bslf, search);
                             break;
                         case 18:
                             ReadFromInstSort instSort = new ReadFromInstSort();
                             string[] inssort = instSort.ReadFile();
-                            Utility.InsertionSortStr(inssort);
+                            Utility.InsertionSort(inssort);
                             break;
                         case 19:
                             BubbleSortOfList bubbleSortOfList = new BubbleSortOfList();
                             int[] r = bubbleSortOfList.ReadFile();
-                            Utility.BubbleSortInt(r);
+                            Utility.BubbleSort(r);
                             break;
                         case 20:
                             MergeSortString mergeSortString = new MergeSortString();
